@@ -1,0 +1,30 @@
+@use 'sass:map';
+@use 'tokens' as *;
+
+@mixin up($name) {
+  @media (min-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin down($name) {
+  @media (max-width: map.get($breakpoints, $name) - 1px) {
+    @content;
+  }
+}
+
+// Centers content to $max-width while keeping side padding on small screens.
+@mixin container {
+  padding-inline: max(20px, calc((100vw - #{$max-width}) / 2));
+}
+
+@mixin focus-ring {
+  outline: 3px solid $color-ink;
+  outline-offset: 3px;
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

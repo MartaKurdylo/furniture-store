@@ -1,0 +1,23 @@
+@use '../styles/abstracts' as *;
+
+.footer {
+  &__visit {
+    display: grid;
+    justify-items: start;
+    gap: 18px;
+    background: $color-ink;
+    color: #fff;
+
+    p {
+      max-width: 52ch;
+      color: #cbd8d4;
+    }
+  }
+
+  &__note {
+    padding-block: 28px;
+    @include container;
+    color: $color-muted;
+    font-size: 0.9rem;
+  }
+}
